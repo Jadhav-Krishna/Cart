@@ -1,0 +1,265 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #c9c9c9;
+    font-family: cursive;
+}
+#nav{
+    padding: 1% 3%;
+    height: 10vh;
+    width: 100%;
+    background-color: #c5c5c5;
+    display: flex;
+    position: fixed;
+    z-index: 99;
+    align-items: center;
+    justify-content: space-between;
+}
+#nav h1{
+    font-family: "Jacquarda Bastarda 9", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#nav i{
+    font-size: 2.7vh;
+    cursor: pointer;
+}
+#nav input{
+    width: 40%;
+    padding: .7vw;
+    font-size: 2vh;
+    /* display: none; */
+    color: black;
+    border: none;
+    border-radius: 30px;
+}
+#nav #option{
+    display: flex;
+    flex-direction: row;
+    gap: 4vh;
+    position: relative;
+}
+#nav #option span{
+    left: 15px;
+    margin-top: 15px;
+    position: absolute;
+    padding: 1px 8px;
+    border-radius: 50%;
+    background-color: red;
+    top: 10%;
+}
+#shop{
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    position: relative;
+    background-color: #dadada;
+}
+#overlay{
+    height: 100%;
+    width: 100%;
+    /* z-index: 1; */
+    position: absolute;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#item-contain{
+    margin-left: 32%;
+    margin-top: 5%;
+    position: relative;
+    width: 35%;
+}
+#search-product{
+    height: 50px;
+    width: 100%;
+    gap: 5vh;
+    display: flex;
+    padding: 1vw;
+    align-items: center;
+    background-color: white;
+}
+#search-product i{
+    font-size: 2vh;
+    color: black;
+    font-weight: 900;
+}
+
+#item{
+    padding: 2vw;
+    gap: 20px;
+    margin-top: 7%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#item::-webkit-scrollbar{
+    display: none;
+}
+#item .product{
+    height: 36vh;
+    width: 20vh;
+    padding: 2vh;
+    flex-shrink: 0;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #c9c9c9;
+}
+#item .product h1{
+    font-size: 2.3vh;
+}
+#item .product h5{
+    font-size: 1.7vh;
+}
+#item .product div{
+    height: 25vh;
+    width: 100%;
+}
+#item .product img{
+    height: 90%;
+    width: 90%;
+    object-fit: cover;
+    filter: drop-shadow(0 20px 30px black);
+}
+#item .product button{
+    border: 1px solid black;
+    padding: 3px 8px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#menu{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10vh 2vw 5vh 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30vw;
+    transform: translatey(100vh);
+    transform: translatex(100vw);
+    background-color: rgb(56, 56, 56);
+    color: white;
+    position: fixed;
+    transition: all ease 1s;
+}
+#menu a{
+    text-decoration: none;
+    color: white;
+    font-size: 10vh;
+}
+#menu i{
+    margin-top: 5%;
+    margin-left: 90%;
+    font-size: 3vh;
+    color: white;
+    cursor: pointer;
+}
+#Cart{
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 13vh 2vw  4vh 2vw;
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    transform: translatex(100vw);
+    background-color: rgb(56, 56, 56);
+    color: white;
+    position: fixed;
+    transition: all ease 1s;
+}
+#Cart button{
+    height: 5vh;
+    width: 49%;
+    font-size: 2vh;
+    cursor: pointer;
+}
+#Cart #btn{
+    width: 90%;
+    position: fixed;
+    display: flex;
+    gap: 1%;
+    bottom: 5%;
+}
+#Cart #item-list{
+    height: 85%;
+    overflow: auto;
+}
+#Cart #item-list::-webkit-scrollbar{
+    display: none;
+}
+
+#Cart #item-list #added-item{
+    height: 7vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#Cart #item-list #added-item img{
+    height: 60px;
+    width: 60px;
+}
+#Cart #item-list span{
+    text-align: center;
+    background-color: white;
+    border-radius: 50%;
+    padding: 1px 9px;
+    color: black;
+}
+#Cart #item-list span:nth-child(2){
+    background-color: transparent;
+    color: white;
+}
+@media (max-width:600px){
+    #item{
+        padding-top: 12%;
+    }
+    #item .product{
+        height: 30vh;
+        width: 45vw;
+    }    
+    #item .product div{
+        height: 20vh;
+        width: 25vw;
+    }
+    #nav input{
+        padding: 1vh;
+    }
+    #item-contain{
+        width: 50vw;
+    }
+    #Cart{
+        width: 100vw;
+    }
+    #Cart #btn{
+        width: 96%;
+    }
+    #menu{
+        width: 100vw;
+        padding: 10vh 5vh;
+    }
+    #top .product img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;    
+    }
+    #Cart #item-list #added-item h2{
+        font-size: 2.5vh;
+    }
+    #Cart #item-list{
+        height: 85%;
+        overflow: auto;
+    }
+    
+}

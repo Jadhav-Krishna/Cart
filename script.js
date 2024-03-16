@@ -73,8 +73,6 @@ let arr = [
   },
 ];
 
-var cart = [];
-
 function bringcart() {
   var icart = document.querySelector("#icart");
 
@@ -135,7 +133,7 @@ function searchItem() {
     }
   );
   inputBar.addEventListener("input",() => {
-    let filterArr = arr.filter(ex => ex.name.toLowerCase().startsWith(inputBar.value));
+    let filterArr = arr.filter(ex => ex.name.toLowerCase().startsWith(inputBar.value.toLowerCase()));
     // console.log(filterArr);
     clutter = "";
     filterArr.forEach(e => {
@@ -159,8 +157,9 @@ function addCart(){
 }
 addCart();
 
+let cart = [];
 function addedItem(){
-  var clutter = "";
+  let clutter = "";
   cart.forEach((elem, index) => {
     clutter += `<div id="added-item">
     <img src="${elem.image}" alt="" />

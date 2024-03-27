@@ -3,74 +3,74 @@ let arr = [
     id: "product1",
     name: "Bar Chair",
     price: 700,
-    image: "pic1-removebg-preview.png",
+    image: "pic1-removebg-preview.png"
   },
   {
     id: "product2",
     name: "Chair",
     price: 500,
-    image: "pic2-removebg-preview.png",
+    image: "pic2-removebg-preview.png"
   },
   {
     id: "product3",
     name: "pot",
     price: 200,
-    image: "pic3-removebg-preview.png",
+    image: "pic3-removebg-preview.png"
   },
   {
     id: "product4",
     name: "lamp",
     price: 450,
-    image: "pic4-removebg-preview.png",
+    image: "pic4-removebg-preview.png"
   },
   {
     id: "product5",
     name: "Stand",
     price: 200,
-    image: "pic5-removebg-preview.png",
+    image: "pic5-removebg-preview.png"
   },
   {
     id: "product6",
     name: "coffee",
     price: 150,
-    image: "pic6-removebg-preview.png",
+    image: "pic6-removebg-preview.png"
   },
   {
     id: "product7",
     name: "Juice",
     price: 100,
-    image: "pic7-removebg-preview.png",
+    image: "pic7-removebg-preview.png"
   },
   {
     id: "product8",
     name: "Beer",
     price: 250,
-    image: "pic8-removebg-preview.png",
+    image: "pic8-removebg-preview.png"
   },
   {
     id: "product9",
     name: "Ice-Cream",
     price: 50,
-    image: "pic9-removebg-preview.png",
+    image: "pic9-removebg-preview.png"
   },
   {
     id: "product10",
     name: "Chips",
     price: 10,
-    image: "pic10-removebg-preview.png",
+    image: "pic10-removebg-preview.png"
   },
   {
     id: "product11",
     name: "Coke",
     price: 50,
-    image: "pic11-removebg-preview.png",
+    image: "pic11-removebg-preview.png"
   },
   {
     id: "product12",
     name: "French fries",
     price: 100,
-    image: "pic12-removebg-preview.png",
-  },
+    image: "pic12-removebg-preview.png"
+  }
 ];
 
 function bringcart() {
@@ -147,21 +147,35 @@ function searchItem() {
 }    
 searchItem();
 
+let cart = [];
 
 function addCart(){
   document.querySelector("#item").addEventListener( "click",e => {
     if (e.target.classList.contains('add')){
       cart.push(arr[e.target.dataset.index])
     }
+    let clutters = "";
+    cart.forEach((elem, index) => {
+      clutters += `<div id="added-item">
+      <img src="${elem.image}" alt="" />
+      <h2>${elem.name}</h2>
+      <h5>₹${elem.price}.00</h5>
+      <div id="quantity">
+        <span id="minus">-</span>
+        <span>1</span>
+        <span id="plus">+</span>
+      </div>
+    </div>`
+    })
+    document.querySelector("#item-list").innerHTML = clutters;
   })
 }
 addCart();
 
-let cart = [];
 function addedItem(){
-  let clutter = "";
+  let clutters = "";
   cart.forEach((elem, index) => {
-    clutter += `<div id="added-item">
+    clutters += `<div id="added-item">
     <img src="${elem.image}" alt="" />
     <h2>${elem.name}</h2>
     <h5>₹${elem.price}.00</h5>
@@ -172,6 +186,6 @@ function addedItem(){
     </div>
   </div>`
   })
-  document.querySelector("#item-list").innerHTML = clutter;
+  document.querySelector("#item-list").innerHTML = clutters;
 }
 addedItem();
